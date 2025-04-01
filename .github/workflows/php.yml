@@ -28,7 +28,14 @@ jobs:
 
     - name: Install dependencies
       run: composer install --prefer-dist --no-progress
-
+    
+    - name: Upload artifacts
+      uses: actions/upload-artifact@v3
+      with:
+         name: vendor
+         path: vendor
+         if-no-files-found: error
+          
     # Add a test script to composer.json, for instance: "test": "vendor/bin/phpunit"
     # Docs: https://getcomposer.org/doc/articles/scripts.md
 
